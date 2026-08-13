@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="Raiz Viva Mercados: Arquitetura TOGAF" id="model-raiz-viva" version="5.6.0">
+  <folder name="Motivation" id="folder-motivation" type="motivation">
+    <element xsi:type="archimate:Stakeholder" id="stakeholder-diretoria" name="Diretoria de Operações"/>
+    <element xsi:type="archimate:Stakeholder" id="stakeholder-loja" name="Gerente de Loja"/>
+    <element xsi:type="archimate:Stakeholder" id="stakeholder-compras" name="Equipe de Compras"/>
+    <element xsi:type="archimate:Driver" id="driver-desperdicio" name="Descarte elevado de perecíveis"/>
+    <element xsi:type="archimate:Driver" id="driver-ruptura" name="Ruptura de estoque em produtos frescos"/>
+    <element xsi:type="archimate:Assessment" id="assessment-planilhas" name="Previsão por planilhas e experiência individual"/>
+    <element xsi:type="archimate:Assessment" id="assessment-fragmentacao" name="PDV, ERP, estoque e promoções não integrados"/>
+    <element xsi:type="archimate:Goal" id="goal-descarte" name="Meta: reduzir descarte em 20 por cento"/>
+    <element xsi:type="archimate:Goal" id="goal-ruptura" name="Meta: reduzir ruptura em 15 por cento"/>
+    <element xsi:type="archimate:Goal" id="goal-decisao" name="Decisão de reposição explicável e auditável"/>
+    <element xsi:type="archimate:Requirement" id="req-granular" name="Prever demanda por SKU, loja e dia"/>
+    <element xsi:type="archimate:Requirement" id="req-contexto" name="Considerar promoção, clima, validade e sazonalidade"/>
+    <element xsi:type="archimate:Requirement" id="req-humano" name="Permitir ajuste humano com justificativa"/>
+    <element xsi:type="archimate:Requirement" id="req-operacao" name="Monitorar qualidade, modelo, custo e resultado"/>
+    <element xsi:type="archimate:Principle" id="principle-eventos" name="Eventos para atualização, lote para histórico"/>
+    <element xsi:type="archimate:Principle" id="principle-humano" name="IA recomenda, responsável aprova exceções"/>
+    <element xsi:type="archimate:Outcome" id="outcome-estoque" name="Estoque certo, na loja certa, no momento certo"/>
+  </folder>
+  <folder name="Strategy" id="folder-strategy" type="strategy">
+    <element xsi:type="archimate:Capability" id="capability-forecast" name="Previsão de demanda"/>
+    <element xsi:type="archimate:Capability" id="capability-replenishment" name="Reposição inteligente"/>
+    <element xsi:type="archimate:Capability" id="capability-governance" name="Governança de dados e modelos"/>
+    <element xsi:type="archimate:ValueStream" id="value-fresh" name="Planejar, repor, vender e aprender"/>
+    <element xsi:type="archimate:CourseOfAction" id="action-platform" name="Criar plataforma FreshFlow"/>
+  </folder>
+  <folder name="Business" id="folder-business" type="business">
+    <element xsi:type="archimate:BusinessActor" id="actor-raiz" name="Raiz Viva Mercados"/>
+    <element xsi:type="archimate:BusinessRole" id="role-planejador" name="Planejador de Demanda"/>
+    <element xsi:type="archimate:BusinessRole" id="role-gerente" name="Gerente de Loja"/>
+    <element xsi:type="archimate:BusinessRole" id="role-comprador" name="Comprador"/>
+    <element xsi:type="archimate:BusinessRole" id="role-steward" name="Responsável por Dados"/>
+    <element xsi:type="archimate:BusinessProcess" id="process-prever" name="Prever demanda diária"/>
+    <element xsi:type="archimate:BusinessProcess" id="process-recomendar" name="Gerar recomendação de reposição"/>
+    <element xsi:type="archimate:BusinessProcess" id="process-excecao" name="Revisar exceções"/>
+    <element xsi:type="archimate:BusinessProcess" id="process-pedido" name="Emitir pedido ao fornecedor"/>
+    <element xsi:type="archimate:BusinessProcess" id="process-aprender" name="Medir venda, ruptura e descarte"/>
+    <element xsi:type="archimate:BusinessService" id="business-service" name="Planejamento inteligente de perecíveis"/>
+    <element xsi:type="archimate:BusinessObject" id="business-object-plan" name="Plano de reposição aprovado"/>
+  </folder>
+  <folder name="Application" id="folder-application" type="application">
+    <element xsi:type="archimate:ApplicationComponent" id="app-pdv" name="Sistema de PDV"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-erp" name="ERP de compras"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-wms" name="Sistema de estoque"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-promocoes" name="Calendário de promoções"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-clima" name="API de clima"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-ingestao" name="Serviço de ingestão"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-qualidade" name="Serviço de qualidade"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-features" name="Pipeline de atributos"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-ml" name="Motor de previsão"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-regras" name="Motor de reposição"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-api" name="API FreshFlow"/>
+    <element xsi:type="archimate:ApplicationComponent" id="app-portal" name="Portal FreshFlow"/>
+    <element xsi:type="archimate:ApplicationService" id="service-ingestao" name="Captura em lote e por eventos"/>
+    <element xsi:type="archimate:ApplicationService" id="service-forecast" name="Previsão probabilística"/>
+    <element xsi:type="archimate:ApplicationService" id="service-recommend" name="Recomendação de reposição"/>
+    <element xsi:type="archimate:ApplicationService" id="service-explain" name="Explicação e ajuste humano"/>
+    <element xsi:type="archimate:DataObject" id="data-vendas" name="Vendas por SKU, loja e horário"/>
+    <element xsi:type="archimate:DataObject" id="data-estoque" name="Estoque, validade e descarte"/>
+    <element xsi:type="archimate:DataObject" id="data-contexto" name="Promoção, clima e calendário"/>
+    <element xsi:type="archimate:DataObject" id="data-raw" name="Zona bruta versionada"/>
+    <element xsi:type="archimate:DataObject" id="data-curated" name="Dados curados"/>
+    <element xsi:type="archimate:DataObject" id="data-feature" name="Atributos de treinamento"/>
+    <element xsi:type="archimate:DataObject" id="data-forecast" name="Previsões e intervalos"/>
+    <element xsi:type="archimate:DataObject" id="data-recommend" name="Recomendações e justificativas"/>
+    <element xsi:type="archimate:DataObject" id="data-catalog" name="Catálogo, linhagem e qualidade"/>
+  </folder>
+  <folder name="Technology &amp; Physical" id="folder-technology" type="technology">
+    <element xsi:type="archimate:Node" id="node-lojas" name="Ambiente das lojas"/>
+    <element xsi:type="archimate:Node" id="node-aws" name="AWS Cloud"/>
+    <element xsi:type="archimate:CommunicationNetwork" id="network-vpn" name="VPN segura"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-dms" name="AWS DMS"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-kinesis" name="Amazon Kinesis"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-s3" name="Amazon S3 Data Lake"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-glue" name="AWS Glue e Data Catalog"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-sagemaker" name="Amazon SageMaker"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-lambda" name="AWS Lambda e API Gateway"/>
+    <element xsi:type="archimate:SystemSoftware" id="tech-aurora" name="Amazon Aurora PostgreSQL"/>
+    <element xsi:type="archimate:TechnologyService" id="tech-iam" name="IAM, KMS e Secrets Manager"/>
+    <element xsi:type="archimate:TechnologyService" id="tech-monitor" name="CloudWatch e auditoria"/>
+    <element xsi:type="archimate:Artifact" id="artifact-model" name="Modelo versionado e métricas"/>
+    <element xsi:type="archimate:Artifact" id="artifact-iac" name="Código e infraestrutura versionados"/>
+  </folder>
+  <folder name="Implementation &amp; Migration" id="folder-implementation" type="implementation_migration">
+    <element xsi:type="archimate:Plateau" id="plateau-baseline" name="Baseline: planilhas e sistemas isolados"/>
+    <element xsi:type="archimate:Gap" id="gap-main" name="Sem previsão granular, integração e aprendizado operacional"/>
+    <element xsi:type="archimate:Plateau" id="plateau-pilot" name="Transição: piloto em 3 lojas"/>
+    <element xsi:type="archimate:Plateau" id="plateau-target" name="Target: plataforma em toda a rede"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-a" name="Fase A: Visão de Arquitetura"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-b" name="Fase B: Arquitetura de Negócio"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-c" name="Fase C: Dados e Aplicações"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-d" name="Fase D: Tecnologia"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-e" name="Fase E: Oportunidades e Soluções"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-f" name="Fase F: Planejamento da Migração"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-g" name="Fase G: Governança da Implementação"/>
+    <element xsi:type="archimate:WorkPackage" id="wp-h" name="Fase H: Gestão de Mudanças"/>
+    <element xsi:type="archimate:Deliverable" id="deliverable-model" name="Modelo ArchiMate validado"/>
+    <element xsi:type="archimate:Deliverable" id="deliverable-pilot" name="Piloto com métricas de negócio"/>
+  </folder>
+  <folder name="Relations" id="folder-relations" type="relations">
+    <element xsi:type="archimate:InfluenceRelationship" id="r1" source="driver-desperdicio" target="assessment-planilhas"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="r2" source="driver-ruptura" target="assessment-fragmentacao"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="r3" source="assessment-planilhas" target="goal-descarte"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="r4" source="assessment-fragmentacao" target="goal-ruptura"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r5" source="req-granular" target="goal-descarte"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r6" source="req-contexto" target="goal-ruptura"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r7" source="req-humano" target="goal-decisao"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r8" source="outcome-estoque" target="goal-descarte"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r9" source="capability-forecast" target="req-granular"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r10" source="capability-replenishment" target="req-contexto"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r11" source="capability-governance" target="req-operacao"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="r12" source="role-planejador" target="process-prever"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="r13" source="role-gerente" target="process-excecao"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="r14" source="role-comprador" target="process-pedido"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="r15" source="role-steward" target="process-aprender"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r16" source="process-prever" target="process-recomendar"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r17" source="process-recomendar" target="process-excecao"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r18" source="process-excecao" target="process-pedido"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r19" source="process-pedido" target="process-aprender"/>
+    <element xsi:type="archimate:AccessRelationship" id="r20" source="process-pedido" target="business-object-plan" accessType="1"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r21" source="process-recomendar" target="business-service"/>
+    <element xsi:type="archimate:ServingRelationship" id="r22" source="service-forecast" target="process-prever"/>
+    <element xsi:type="archimate:ServingRelationship" id="r23" source="service-recommend" target="process-recomendar"/>
+    <element xsi:type="archimate:ServingRelationship" id="r24" source="service-explain" target="process-excecao"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r25" source="app-ingestao" target="service-ingestao"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r26" source="app-ml" target="service-forecast"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r27" source="app-regras" target="service-recommend"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r28" source="app-portal" target="service-explain"/>
+    <element xsi:type="archimate:FlowRelationship" id="r29" source="app-pdv" target="app-ingestao"/>
+    <element xsi:type="archimate:FlowRelationship" id="r30" source="app-erp" target="app-ingestao"/>
+    <element xsi:type="archimate:FlowRelationship" id="r31" source="app-wms" target="app-ingestao"/>
+    <element xsi:type="archimate:FlowRelationship" id="r32" source="app-promocoes" target="app-ingestao"/>
+    <element xsi:type="archimate:FlowRelationship" id="r33" source="app-clima" target="app-ingestao"/>
+    <element xsi:type="archimate:AccessRelationship" id="r34" source="app-ingestao" target="data-raw" accessType="1"/>
+    <element xsi:type="archimate:AccessRelationship" id="r35" source="app-qualidade" target="data-raw"/>
+    <element xsi:type="archimate:AccessRelationship" id="r36" source="app-qualidade" target="data-catalog" accessType="1"/>
+    <element xsi:type="archimate:FlowRelationship" id="r37" source="data-raw" target="app-features"/>
+    <element xsi:type="archimate:AccessRelationship" id="r38" source="app-features" target="data-curated" accessType="1"/>
+    <element xsi:type="archimate:FlowRelationship" id="r39" source="data-curated" target="data-feature"/>
+    <element xsi:type="archimate:AccessRelationship" id="r40" source="app-ml" target="data-feature"/>
+    <element xsi:type="archimate:AccessRelationship" id="r41" source="app-ml" target="data-forecast" accessType="1"/>
+    <element xsi:type="archimate:FlowRelationship" id="r42" source="data-forecast" target="app-regras"/>
+    <element xsi:type="archimate:AccessRelationship" id="r43" source="app-regras" target="data-recommend" accessType="1"/>
+    <element xsi:type="archimate:FlowRelationship" id="r44" source="data-recommend" target="app-api"/>
+    <element xsi:type="archimate:ServingRelationship" id="r45" source="app-api" target="app-portal"/>
+    <element xsi:type="archimate:AssociationRelationship" id="r46" source="node-lojas" target="network-vpn"/>
+    <element xsi:type="archimate:AssociationRelationship" id="r47" source="network-vpn" target="node-aws"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r48" source="node-aws" target="tech-dms"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r49" source="node-aws" target="tech-kinesis"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r50" source="node-aws" target="tech-s3"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r51" source="node-aws" target="tech-glue"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r52" source="node-aws" target="tech-sagemaker"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r53" source="node-aws" target="tech-lambda"/>
+    <element xsi:type="archimate:CompositionRelationship" id="r54" source="node-aws" target="tech-aurora"/>
+    <element xsi:type="archimate:ServingRelationship" id="r55" source="tech-dms" target="app-ingestao"/>
+    <element xsi:type="archimate:ServingRelationship" id="r56" source="tech-kinesis" target="app-ingestao"/>
+    <element xsi:type="archimate:ServingRelationship" id="r57" source="tech-glue" target="app-features"/>
+    <element xsi:type="archimate:ServingRelationship" id="r58" source="tech-sagemaker" target="app-ml"/>
+    <element xsi:type="archimate:ServingRelationship" id="r59" source="tech-lambda" target="app-api"/>
+    <element xsi:type="archimate:ServingRelationship" id="r60" source="tech-aurora" target="app-regras"/>
+    <element xsi:type="archimate:ServingRelationship" id="r61" source="tech-iam" target="app-api"/>
+    <element xsi:type="archimate:ServingRelationship" id="r62" source="tech-monitor" target="app-ml"/>
+    <element xsi:type="archimate:AssociationRelationship" id="r63" source="plateau-baseline" target="gap-main"/>
+    <element xsi:type="archimate:AssociationRelationship" id="r64" source="gap-main" target="plateau-pilot"/>
+    <element xsi:type="archimate:AssociationRelationship" id="r65" source="plateau-pilot" target="plateau-target"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r66" source="wp-a" target="wp-b"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r67" source="wp-b" target="wp-c"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r68" source="wp-c" target="wp-d"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r69" source="wp-d" target="wp-e"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r70" source="wp-e" target="wp-f"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r71" source="wp-f" target="wp-g"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r72" source="wp-g" target="wp-h"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r73" source="wp-c" target="deliverable-model"/>
+    <element xsi:type="archimate:RealizationRelationship" id="r74" source="wp-g" target="deliverable-pilot"/>
+    <element xsi:type="archimate:FlowRelationship" id="r75" source="data-curated" target="app-ml"/>
+    <element xsi:type="archimate:FlowRelationship" id="r76" source="app-ml" target="app-regras"/>
+    <element xsi:type="archimate:FlowRelationship" id="r77" source="app-regras" target="app-api"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r78" source="plateau-baseline" target="plateau-pilot"/>
+  </folder>
+  <folder name="Views" id="folder-views" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-map" name="00. Mapa do exemplo">
+      <child xsi:type="archimate:DiagramModelReference" id="map1" model="view-motivation"><bounds x="30" y="30" width="360" height="75"/></child>
+      <child xsi:type="archimate:DiagramModelReference" id="map2" model="view-baseline"><bounds x="420" y="30" width="360" height="75"/></child>
+      <child xsi:type="archimate:DiagramModelReference" id="map3" model="view-business"><bounds x="30" y="135" width="360" height="75"/></child>
+      <child xsi:type="archimate:DiagramModelReference" id="map4" model="view-data-app"><bounds x="420" y="135" width="360" height="75"/></child>
+      <child xsi:type="archimate:DiagramModelReference" id="map5" model="view-technology"><bounds x="30" y="240" width="360" height="75"/></child>
+      <child xsi:type="archimate:DiagramModelReference" id="map6" model="view-roadmap"><bounds x="420" y="240" width="360" height="75"/></child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-motivation" name="01. Problema, metas e requisitos">
+      <child xsi:type="archimate:Group" id="m-g1" name="Problema" fillColor="#f5c2c2"><bounds x="20" y="20" width="520" height="210"/>
+        <child xsi:type="archimate:DiagramObject" id="m-driver1" archimateElement="driver-desperdicio"><bounds x="20" y="45" width="190" height="55"/><sourceConnection xsi:type="archimate:Connection" id="mc1" source="m-driver1" target="m-assess1" relationship="r1"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-driver2" archimateElement="driver-ruptura"><bounds x="20" y="125" width="190" height="55"/><sourceConnection xsi:type="archimate:Connection" id="mc2" source="m-driver2" target="m-assess2" relationship="r2"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-assess1" targetConnections="mc1" archimateElement="assessment-planilhas"><bounds x="250" y="40" width="240" height="65"/><sourceConnection xsi:type="archimate:Connection" id="mc3" source="m-assess1" target="m-goal1" relationship="r3"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-assess2" targetConnections="mc2" archimateElement="assessment-fragmentacao"><bounds x="250" y="120" width="240" height="65"/><sourceConnection xsi:type="archimate:Connection" id="mc4" source="m-assess2" target="m-goal2" relationship="r4"/></child>
+      </child>
+      <child xsi:type="archimate:Group" id="m-g2" name="Arquitetura desejada" fillColor="#d7ebba"><bounds x="570" y="20" width="640" height="300"/>
+        <child xsi:type="archimate:DiagramObject" id="m-goal1" targetConnections="mc3 mc5 mc8" archimateElement="goal-descarte"><bounds x="30" y="45" width="230" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-goal2" targetConnections="mc4 mc6" archimateElement="goal-ruptura"><bounds x="30" y="120" width="230" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-goal3" targetConnections="mc7" archimateElement="goal-decisao"><bounds x="30" y="195" width="230" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-req1" archimateElement="req-granular"><bounds x="320" y="25" width="280" height="50"/><sourceConnection xsi:type="archimate:Connection" id="mc5" source="m-req1" target="m-goal1" relationship="r5"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-req2" archimateElement="req-contexto"><bounds x="320" y="90" width="280" height="50"/><sourceConnection xsi:type="archimate:Connection" id="mc6" source="m-req2" target="m-goal2" relationship="r6"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-req3" archimateElement="req-humano"><bounds x="320" y="155" width="280" height="50"/><sourceConnection xsi:type="archimate:Connection" id="mc7" source="m-req3" target="m-goal3" relationship="r7"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-outcome" archimateElement="outcome-estoque"><bounds x="320" y="220" width="280" height="50"/><sourceConnection xsi:type="archimate:Connection" id="mc8" source="m-outcome" target="m-goal1" relationship="r8"/></child>
+      </child>
+      <child xsi:type="archimate:Group" id="m-g3" name="Princípios" fillColor="#eadcf8"><bounds x="200" y="350" width="820" height="100"/>
+        <child xsi:type="archimate:DiagramObject" id="m-principle1" archimateElement="principle-eventos"><bounds x="35" y="30" width="340" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="m-principle2" archimateElement="principle-humano"><bounds x="430" y="30" width="340" height="50"/></child>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-baseline" name="02. Baseline e lacuna">
+      <child xsi:type="archimate:Group" id="b-g1" name="Estado atual" fillColor="#f5c2c2"><bounds x="20" y="20" width="1160" height="160"/>
+        <child xsi:type="archimate:DiagramObject" id="b-pdv" archimateElement="app-pdv"><bounds x="20" y="55" width="160" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="b-erp" archimateElement="app-erp"><bounds x="210" y="55" width="160" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="b-wms" archimateElement="app-wms"><bounds x="400" y="55" width="160" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="b-planilha" archimateElement="assessment-planilhas"><bounds x="610" y="45" width="240" height="75"/></child>
+        <child xsi:type="archimate:DiagramObject" id="b-desperdicio" archimateElement="driver-desperdicio"><bounds x="900" y="45" width="220" height="75"/></child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="b-plateau1" archimateElement="plateau-baseline"><bounds x="70" y="240" width="280" height="65"/><sourceConnection xsi:type="archimate:Connection" id="bc1" source="b-plateau1" target="b-gap" relationship="r63"/></child>
+      <child xsi:type="archimate:DiagramObject" id="b-gap" targetConnections="bc1" archimateElement="gap-main"><bounds x="430" y="225" width="360" height="95"/><sourceConnection xsi:type="archimate:Connection" id="bc2" source="b-gap" target="b-plateau2" relationship="r64"/></child>
+      <child xsi:type="archimate:DiagramObject" id="b-plateau2" targetConnections="bc2" archimateElement="plateau-pilot"><bounds x="870" y="240" width="260" height="65"/></child>
+      <child xsi:type="archimate:Note" id="b-note" content="A lacuna não é apenas tecnológica. O processo atual não mede se a recomendação foi aceita, alterada ou rejeitada, nem conecta a decisão ao resultado de ruptura e descarte."><bounds x="250" y="370" width="700" height="90"/></child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-business" name="03. Fase B: Arquitetura de Negócio">
+      <child xsi:type="archimate:Group" id="bu-g1" name="Papéis" fillColor="#fff2b2"><bounds x="20" y="20" width="1160" height="110"/>
+        <child xsi:type="archimate:DiagramObject" id="bu-role1" archimateElement="role-planejador"><bounds x="40" y="35" width="200" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-role2" archimateElement="role-gerente"><bounds x="320" y="35" width="200" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-role3" archimateElement="role-comprador"><bounds x="600" y="35" width="200" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-role4" archimateElement="role-steward"><bounds x="880" y="35" width="200" height="50"/></child>
+      </child>
+      <child xsi:type="archimate:Group" id="bu-g2" name="Processo alvo" fillColor="#d7ebba"><bounds x="20" y="170" width="1160" height="140"/>
+        <child xsi:type="archimate:DiagramObject" id="bu-p1" archimateElement="process-prever"><bounds x="25" y="50" width="180" height="55"/><sourceConnection xsi:type="archimate:Connection" id="buc1" source="bu-p1" target="bu-p2" relationship="r16"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-p2" targetConnections="buc1" archimateElement="process-recomendar"><bounds x="240" y="50" width="190" height="55"/><sourceConnection xsi:type="archimate:Connection" id="buc2" source="bu-p2" target="bu-p3" relationship="r17"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-p3" targetConnections="buc2" archimateElement="process-excecao"><bounds x="465" y="50" width="180" height="55"/><sourceConnection xsi:type="archimate:Connection" id="buc3" source="bu-p3" target="bu-p4" relationship="r18"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-p4" targetConnections="buc3" archimateElement="process-pedido"><bounds x="680" y="50" width="190" height="55"/><sourceConnection xsi:type="archimate:Connection" id="buc4" source="bu-p4" target="bu-p5" relationship="r19"/></child>
+        <child xsi:type="archimate:DiagramObject" id="bu-p5" targetConnections="buc4" archimateElement="process-aprender"><bounds x="905" y="50" width="220" height="55"/></child>
+      </child>
+      <child xsi:type="archimate:Note" id="bu-note" content="O diferencial frente a um BI é fechar o ciclo: prever, recomendar, permitir decisão humana, executar no ERP e aprender com o resultado real."><bounds x="280" y="360" width="640" height="80"/></child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-data-app" name="04. Fase C: Dados e Aplicações">
+      <child xsi:type="archimate:Group" id="da-g1" name="Fontes" fillColor="#f2f2f2"><bounds x="20" y="20" width="1160" height="100"/>
+        <child xsi:type="archimate:DiagramObject" id="da-pdv" archimateElement="app-pdv"><bounds x="20" y="30" width="160" height="50"/><sourceConnection xsi:type="archimate:Connection" id="dac1" source="da-pdv" target="da-ingest" relationship="r29"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-erp" archimateElement="app-erp"><bounds x="210" y="30" width="160" height="50"/><sourceConnection xsi:type="archimate:Connection" id="dac2" source="da-erp" target="da-ingest" relationship="r30"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-wms" archimateElement="app-wms"><bounds x="400" y="30" width="160" height="50"/><sourceConnection xsi:type="archimate:Connection" id="dac3" source="da-wms" target="da-ingest" relationship="r31"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-promo" archimateElement="app-promocoes"><bounds x="590" y="30" width="190" height="50"/><sourceConnection xsi:type="archimate:Connection" id="dac4" source="da-promo" target="da-ingest" relationship="r32"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-clima" archimateElement="app-clima"><bounds x="810" y="30" width="160" height="50"/><sourceConnection xsi:type="archimate:Connection" id="dac5" source="da-clima" target="da-ingest" relationship="r33"/></child>
+      </child>
+      <child xsi:type="archimate:Group" id="da-g2" name="Plataforma FreshFlow" fillColor="#cfe8ff"><bounds x="20" y="150" width="1160" height="270"/>
+        <child xsi:type="archimate:DiagramObject" id="da-ingest" targetConnections="dac1 dac2 dac3 dac4 dac5" archimateElement="app-ingestao"><bounds x="20" y="50" width="160" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac6" source="da-ingest" target="da-raw" relationship="r34"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-raw" targetConnections="dac6" archimateElement="data-raw"><bounds x="210" y="50" width="150" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac7" source="da-raw" target="da-features" relationship="r37"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-features" targetConnections="dac7" archimateElement="app-features"><bounds x="390" y="50" width="160" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac8" source="da-features" target="da-curated" relationship="r38"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-curated" targetConnections="dac8" archimateElement="data-curated"><bounds x="580" y="50" width="150" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac9" source="da-curated" target="da-ml" relationship="r75"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-ml" targetConnections="dac9" archimateElement="app-ml"><bounds x="760" y="50" width="160" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac10" source="da-ml" target="da-regras" relationship="r76"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-regras" targetConnections="dac10" archimateElement="app-regras"><bounds x="950" y="50" width="170" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac11" source="da-regras" target="da-api" relationship="r77"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-quality" archimateElement="app-qualidade"><bounds x="210" y="155" width="160" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac12" source="da-quality" target="da-catalog" relationship="r36"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-catalog" targetConnections="dac12" archimateElement="data-catalog"><bounds x="400" y="155" width="190" height="55"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-api" targetConnections="dac11" archimateElement="app-api"><bounds x="760" y="155" width="160" height="55"/><sourceConnection xsi:type="archimate:Connection" id="dac13" source="da-api" target="da-portal" relationship="r45"/></child>
+        <child xsi:type="archimate:DiagramObject" id="da-portal" targetConnections="dac13" archimateElement="app-portal"><bounds x="950" y="155" width="170" height="55"/></child>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-technology" name="05. Fase D: Arquitetura Tecnológica">
+      <child xsi:type="archimate:DiagramObject" id="t-lojas" archimateElement="node-lojas"><bounds x="30" y="170" width="180" height="65"/><sourceConnection xsi:type="archimate:Connection" id="tc1" source="t-lojas" target="t-vpn" relationship="r46"/></child>
+      <child xsi:type="archimate:DiagramObject" id="t-vpn" targetConnections="tc1" archimateElement="network-vpn"><bounds x="260" y="170" width="170" height="65"/><sourceConnection xsi:type="archimate:Connection" id="tc2" source="t-vpn" target="t-node-aws" relationship="r47"/></child>
+      <child xsi:type="archimate:Group" id="t-aws" name="AWS Cloud" fillColor="#d8f0d2"><bounds x="480" y="20" width="700" height="420"/>
+        <child xsi:type="archimate:DiagramObject" id="t-node-aws" targetConnections="tc2" archimateElement="node-aws"><bounds x="245" y="5" width="210" height="40"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-dms" archimateElement="tech-dms"><bounds x="25" y="55" width="150" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-kinesis" archimateElement="tech-kinesis"><bounds x="205" y="55" width="160" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-s3" archimateElement="tech-s3"><bounds x="395" y="55" width="170" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-glue" archimateElement="tech-glue"><bounds x="25" y="145" width="170" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-sm" archimateElement="tech-sagemaker"><bounds x="225" y="145" width="170" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-lambda" archimateElement="tech-lambda"><bounds x="425" y="145" width="210" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-aurora" archimateElement="tech-aurora"><bounds x="25" y="235" width="200" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-iam" archimateElement="tech-iam"><bounds x="255" y="235" width="190" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-monitor" archimateElement="tech-monitor"><bounds x="475" y="235" width="160" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-model" archimateElement="artifact-model"><bounds x="130" y="325" width="190" height="50"/></child>
+        <child xsi:type="archimate:DiagramObject" id="t-iac" archimateElement="artifact-iac"><bounds x="370" y="325" width="220" height="50"/></child>
+      </child>
+      <child xsi:type="archimate:Note" id="t-note" content="DMS atende replicação de bancos existentes. Kinesis recebe eventos. S3 preserva histórico. Glue prepara e cataloga. SageMaker treina e publica modelos. Lambda e API Gateway entregam recomendações. IAM, KMS e CloudWatch atravessam toda a solução."><bounds x="30" y="300" width="400" height="120"/></child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="view-roadmap" name="06. Roadmap TOGAF ADM A a H">
+      <child xsi:type="archimate:Group" id="rm-g1" name="Definir arquitetura" fillColor="#eadcf8"><bounds x="20" y="20" width="590" height="220"/>
+        <child xsi:type="archimate:DiagramObject" id="rm-a" archimateElement="wp-a"><bounds x="20" y="45" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc1" source="rm-a" target="rm-b" relationship="r66"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-b" targetConnections="rmc1" archimateElement="wp-b"><bounds x="315" y="45" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc2" source="rm-b" target="rm-c" relationship="r67"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-c" targetConnections="rmc2" archimateElement="wp-c"><bounds x="20" y="135" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc3" source="rm-c" target="rm-d" relationship="r68"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-d" targetConnections="rmc3" archimateElement="wp-d"><bounds x="315" y="135" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc4" source="rm-d" target="rm-e" relationship="r69"/></child>
+      </child>
+      <child xsi:type="archimate:Group" id="rm-g2" name="Migrar, governar e melhorar" fillColor="#d8f0d2"><bounds x="640" y="20" width="590" height="220"/>
+        <child xsi:type="archimate:DiagramObject" id="rm-e" targetConnections="rmc4" archimateElement="wp-e"><bounds x="20" y="45" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc5" source="rm-e" target="rm-f" relationship="r70"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-f" targetConnections="rmc5" archimateElement="wp-f"><bounds x="315" y="45" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc6" source="rm-f" target="rm-g" relationship="r71"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-g" targetConnections="rmc6" archimateElement="wp-g"><bounds x="20" y="135" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc7" source="rm-g" target="rm-h" relationship="r72"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-h" targetConnections="rmc7" archimateElement="wp-h"><bounds x="315" y="135" width="250" height="55"/></child>
+      </child>
+      <child xsi:type="archimate:Group" id="rm-g3" name="Estados" fillColor="#fff2b2"><bounds x="170" y="300" width="900" height="140"/>
+        <child xsi:type="archimate:DiagramObject" id="rm-p1" archimateElement="plateau-baseline"><bounds x="30" y="45" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc8" source="rm-p1" target="rm-p2" relationship="r78"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-p2" targetConnections="rmc8" archimateElement="plateau-pilot"><bounds x="330" y="45" width="250" height="55"/><sourceConnection xsi:type="archimate:Connection" id="rmc9" source="rm-p2" target="rm-p3" relationship="r65"/></child>
+        <child xsi:type="archimate:DiagramObject" id="rm-p3" targetConnections="rmc9" archimateElement="plateau-target"><bounds x="630" y="45" width="240" height="55"/></child>
+      </child>
+      <child xsi:type="archimate:Note" id="rm-note" content="Gestão de requisitos é transversal. O piloto só avança quando reduzir descarte e ruptura sem aumentar indisponibilidade, custo operacional ou intervenção manual fora do limite definido."><bounds x="300" y="485" width="650" height="90"/></child>
+    </element>
+  </folder>
+  <purpose>Exemplo inédito e fictício para estudo de TOGAF e ArchiMate na FIAP. A rede Raiz Viva Mercados enfrenta descarte e ruptura de perecíveis causados por sistemas isolados e previsão manual. A arquitetura FreshFlow integra PDV, ERP, estoque, promoções e clima, produz previsão granular, recomenda reposição, preserva decisão humana e mede o resultado de negócio. O modelo contém motivação, baseline, arquitetura de negócio, dados e aplicações, tecnologia e roadmap ADM A a H.</purpose>
+</archimate:model>
