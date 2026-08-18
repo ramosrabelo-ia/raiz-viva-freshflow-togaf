@@ -1,0 +1,47 @@
+name: Publicar arquitetura interativa
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Preparar GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Montar site
+        run: |
+          mkdir -p _site/assets _site/modelos
+          cp index.html _site/index.html
+          cp assets/styles.css _site/assets/styles.css
+          cp assets/app.js _site/assets/app.js
+          cp modelos/Raiz_Viva_TOGAF_ArchiMate.archimate _site/modelos/Raiz_Viva_TOGAF_ArchiMate.archimate
+
+      - name: Enviar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
