@@ -2,6 +2,12 @@
 
 Projeto acadêmico de Arquitetura Empresarial que aplica TOGAF ADM e ArchiMate à operação de perecíveis de uma rede varejista simulada.
 
+## Página interativa
+
+A arquitetura pode ser explorada no [FreshFlow Architecture Explorer](https://ramosrabelo-ia.github.io/raiz-viva-freshflow-togaf/).
+
+A página lê diretamente o arquivo `modelos/Raiz_Viva_TOGAF_ArchiMate.archimate` e transforma as visões do ArchiMate em diagramas navegáveis. É possível trocar de visão, pesquisar elementos, clicar nos componentes e consultar suas relações dentro do modelo.
+
 ## Contexto
 
 A Raiz Viva Mercados enfrenta uma contradição comum no varejo de alimentos frescos. Parte dos produtos vence na prateleira, enquanto outros acabam antes da reposição. As decisões dependem de planilhas, experiência individual e sistemas que não compartilham adequadamente as informações.
