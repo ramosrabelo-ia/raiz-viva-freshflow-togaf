@@ -2,11 +2,13 @@
 
 Projeto acadêmico de Arquitetura Empresarial que aplica TOGAF ADM e ArchiMate à operação de perecíveis de uma rede varejista simulada.
 
-## Página interativa
+## FreshFlow Computer
 
-A arquitetura pode ser explorada no [FreshFlow Architecture Explorer](https://ramosrabelo-ia.github.io/raiz-viva-freshflow-togaf/).
+A página interativa foi redesenhada como um workspace de arquitetura: navegação lateral, área central de explicação, painel de contexto e campo de perguntas. A ideia é permitir que alguém entenda o projeto inteiro sem precisar abrir o Archi primeiro.
 
-A página lê diretamente o arquivo `modelos/Raiz_Viva_TOGAF_ArchiMate.archimate` e transforma as visões do ArchiMate em diagramas navegáveis. É possível trocar de visão, pesquisar elementos, clicar nos componentes e consultar suas relações dentro do modelo.
+A interface usa como fonte o arquivo `modelos/Raiz_Viva_TOGAF_ArchiMate.archimate`. O modelo original continua sendo o artefato principal e pode ser baixado diretamente pela página.
+
+No módulo ArchiMate da interface é possível trocar de visão, pesquisar elementos, clicar nos componentes e consultar suas relações.
 
 ## Contexto
 
@@ -58,19 +60,7 @@ Cada recomendação deve preservar a versão dos dados, a versão do modelo, as 
 
 `documentos/roteiro_apresentacao.md` contém a divisão da apresentação e um resumo das falas.
 
-## Apresentação
-
-A apresentação nativa pode ser visualizada e editada no [Canva](https://www.canva.com/design/DAHSFuLoMDM/nzXD9kx9KZq06YAXZ65hPA/edit).
-
-## Como abrir o modelo
-
-1. Instale o aplicativo Archi.
-
-2. Baixe o arquivo com extensão `.archimate` deste repositório.
-
-3. No Archi, escolha a opção para abrir um modelo existente.
-
-4. Selecione o arquivo baixado e navegue pelas visões do projeto.
+`index.html`, `assets/styles.css` e `assets/app.js` formam o FreshFlow Computer.
 
 ## Equipe
 
