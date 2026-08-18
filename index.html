@@ -3,169 +3,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explorador interativo da arquitetura FreshFlow, construído a partir do arquivo ArchiMate do projeto Raiz Viva.">
-  <title>FreshFlow | Arquitetura Interativa</title>
+  <meta name="description" content="FreshFlow Computer: exploração interativa da arquitetura TOGAF e ArchiMate da Raiz Viva.">
+  <title>FreshFlow Computer</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="FreshFlow início">
-      <span class="brand-mark">RF</span>
-      <span>
-        <strong>FreshFlow</strong>
-        <small>Architecture Explorer</small>
-      </span>
-    </a>
-    <nav class="topnav" aria-label="Navegação principal">
-      <a href="#visao-geral">Visão geral</a>
-      <a href="#explorador">Modelo</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="https://github.com/ramosrabelo-ia/raiz-viva-freshflow-togaf" target="_blank" rel="noreferrer">GitHub</a>
-    </nav>
-  </header>
+  <div class="computer-shell">
+    <header class="window-bar">
+      <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="window-title">FreshFlow Computer</div>
+      <a class="window-link" href="modelos/Raiz_Viva_TOGAF_ArchiMate.archimate" download>baixar .archimate</a>
+    </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-copy">
-        <div class="eyebrow">Raiz Viva Mercados · TOGAF ADM · ArchiMate</div>
-        <h1>Uma arquitetura para decidir melhor antes que o perecível vire descarte ou ruptura.</h1>
-        <p class="hero-lead">Esta página lê o arquivo ArchiMate original do projeto e transforma suas visões, elementos e relações em uma navegação interativa. O modelo conecta negócio, dados, aplicações, tecnologia, implementação e governança.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#explorador">Explorar o modelo</a>
-          <a class="button ghost" href="modelos/Raiz_Viva_TOGAF_ArchiMate.archimate" download>Baixar arquivo ArchiMate</a>
-        </div>
-        <p class="disclaimer">As metas de reduzir descarte em 20% e ruptura em 15% são objetivos propostos para o piloto, não resultados já comprovados.</p>
-      </div>
-      <div class="hero-panel">
-        <div class="hero-panel-label">Arquitetura em uma frase</div>
-        <p>Integrar sinais operacionais, prever demanda, recomendar reposição, manter a decisão humana e aprender com o resultado real.</p>
-        <div class="hero-flow" aria-label="Fluxo resumido">
-          <span>Dados</span><i></i><span>Previsão</span><i></i><span>Recomendação</span><i></i><span>Humano</span><i></i><span>Resultado</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats shell" aria-label="Resumo do modelo">
-      <article><strong id="stat-elements">...</strong><span>elementos de arquitetura</span></article>
-      <article><strong id="stat-relations">...</strong><span>relações modeladas</span></article>
-      <article><strong id="stat-views">...</strong><span>visões ArchiMate</span></article>
-      <article><strong id="stat-phases">8</strong><span>fases ADM no roadmap</span></article>
-    </section>
-
-    <section id="visao-geral" class="section shell">
-      <div class="section-heading">
-        <span class="section-index">01</span>
-        <div>
-          <p class="kicker">O problema e a resposta</p>
-          <h2>O modelo começa no negócio, não na ferramenta.</h2>
-        </div>
-      </div>
-      <div class="overview-grid">
-        <article class="story-card problem">
-          <span class="card-label">Problema</span>
-          <h3>Excesso e falta podem acontecer ao mesmo tempo.</h3>
-          <p>Planilhas, experiência individual e sistemas isolados dificultam uma decisão de reposição consistente. Parte do estoque vence enquanto outros itens acabam antes da hora.</p>
-        </article>
-        <article class="story-card answer">
-          <span class="card-label">FreshFlow</span>
-          <h3>Conectar previsão, decisão, execução e aprendizado.</h3>
-          <p>PDV, ERP, estoque, promoções e clima alimentam uma plataforma que prepara dados, produz previsão e gera uma recomendação de reposição rastreável.</p>
-        </article>
-        <article class="story-card principle">
-          <span class="card-label">Princípio</span>
-          <h3>IA recomenda. A pessoa responsável decide as exceções.</h3>
-          <p>O portal permite aceitar, ajustar ou rejeitar a recomendação com justificativa. O histórico preserva dado, modelo, regra, decisão humana e resultado observado.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="explorador" class="section explorer-section">
-      <div class="shell">
-        <div class="section-heading explorer-heading">
-          <span class="section-index">02</span>
-          <div>
-            <p class="kicker">Modelo vivo</p>
-            <h2>Explore as visões do arquivo ArchiMate.</h2>
-            <p class="section-copy">Troque de visão, pesquise qualquer elemento e clique nas caixas para ver as relações que o conectam ao restante da arquitetura.</p>
-          </div>
+    <div class="app-grid">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">F</div>
+          <div><strong>FreshFlow</strong><small>Raiz Viva · FIAP</small></div>
         </div>
 
-        <div class="explorer-toolbar">
-          <div id="view-tabs" class="view-tabs" role="tablist" aria-label="Visões ArchiMate"></div>
-          <div class="toolbar-actions">
-            <label class="searchbox">
-              <span class="sr-only">Buscar elemento</span>
-              <input id="model-search" list="model-elements" type="search" placeholder="Buscar elemento..." autocomplete="off">
-              <datalist id="model-elements"></datalist>
-            </label>
-            <button id="zoom-out" class="icon-button" type="button" aria-label="Diminuir zoom">−</button>
-            <button id="fit-view" class="icon-button wide" type="button">Ajustar</button>
-            <button id="zoom-in" class="icon-button" type="button" aria-label="Aumentar zoom">+</button>
-          </div>
+        <nav id="nav" class="side-nav" aria-label="Navegação do modelo">
+          <button data-screen="home" class="active"><span>⌂</span>Visão geral</button>
+          <button data-screen="problem"><span>01</span>Problema</button>
+          <button data-screen="business"><span>02</span>Negócio</button>
+          <button data-screen="data"><span>03</span>Dados e IA</button>
+          <button data-screen="technology"><span>04</span>Tecnologia</button>
+          <button data-screen="roadmap"><span>05</span>Roadmap</button>
+          <button data-screen="model"><span>06</span>ArchiMate</button>
+        </nav>
+
+        <div class="sidebar-foot">
+          <span id="model-status" class="status-dot">carregando modelo</span>
+          <a href="https://github.com/ramosrabelo-ia/raiz-viva-freshflow-togaf" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <div class="browser-bar">
+          <div class="crumb">architecture.raizviva</div>
+          <button id="command-button" class="command-button" type="button">⌘ K · perguntar ao modelo</button>
         </div>
 
-        <div class="explorer-layout">
-          <div class="canvas-column">
-            <div class="view-intro">
-              <div>
-                <span id="view-kicker">Visão</span>
-                <h3 id="view-title">Carregando modelo...</h3>
-              </div>
-              <p id="view-description">O arquivo ArchiMate está sendo processado.</p>
-            </div>
-            <div id="canvas-wrap" class="canvas-wrap" tabindex="0" aria-label="Diagrama ArchiMate interativo">
-              <div id="loading-state" class="loading-state">
-                <div class="loader"></div>
-                <p>Lendo o modelo ArchiMate...</p>
-              </div>
-              <svg id="architecture-svg" aria-label="Visualização da arquitetura" role="img"></svg>
-            </div>
+        <section id="screen-home" class="screen active">
+          <div class="answer-head">
+            <p class="eyebrow">Arquitetura empresarial · TOGAF ADM · ArchiMate</p>
+            <h1>Como decidir a reposição de perecíveis sem transformar excesso em descarte e falta em ruptura?</h1>
+            <p class="lead">O FreshFlow conecta dados operacionais, previsão de demanda, recomendação de reposição, decisão humana e aprendizado com o resultado real. A arquitetura foi modelada no Archi e esta interface lê o arquivo original para explicar o projeto de forma navegável.</p>
           </div>
 
-          <aside id="detail-panel" class="detail-panel">
-            <div class="detail-empty">
-              <span>Detalhes</span>
-              <h3>Selecione um elemento.</h3>
-              <p>Clique em uma caixa do diagrama para ver seu tipo ArchiMate e as relações de entrada e saída.</p>
+          <div class="metric-row">
+            <article><strong>20%</strong><span>meta proposta de redução de descarte</span></article>
+            <article><strong>15%</strong><span>meta proposta de redução de ruptura</span></article>
+            <article><strong>3</strong><span>lojas no piloto proposto</span></article>
+            <article><strong>8</strong><span>fases ADM no roadmap</span></article>
+          </div>
+
+          <section class="panel flow-panel">
+            <div class="panel-title"><span>Fluxo principal</span><small>o que o FreshFlow faz</small></div>
+            <div class="flow-strip">
+              <button data-jump="data"><b>01</b><strong>Coletar</strong><small>PDV, ERP, estoque, promoções e clima</small></button>
+              <i>→</i>
+              <button data-jump="data"><b>02</b><strong>Preparar</strong><small>qualidade, catálogo, linhagem e dados curados</small></button>
+              <i>→</i>
+              <button data-jump="data"><b>03</b><strong>Prever</strong><small>demanda por SKU, loja e dia</small></button>
+              <i>→</i>
+              <button data-jump="business"><b>04</b><strong>Decidir</strong><small>gestor aceita, ajusta ou rejeita</small></button>
+              <i>→</i>
+              <button data-jump="roadmap"><b>05</b><strong>Aprender</strong><small>medir venda, ruptura e descarte</small></button>
             </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+          </section>
 
-    <section id="roadmap" class="section shell">
-      <div class="section-heading">
-        <span class="section-index">03</span>
-        <div>
-          <p class="kicker">TOGAF ADM</p>
-          <h2>Da visão à mudança contínua.</h2>
-          <p class="section-copy">O roadmap do próprio modelo organiza a transformação em oito fases e mantém a gestão de requisitos como preocupação transversal.</p>
-        </div>
-      </div>
-      <div id="adm-roadmap" class="adm-roadmap" aria-label="Roadmap TOGAF ADM"></div>
-      <div class="transition-card">
-        <div><span>Baseline</span><strong>Planilhas e sistemas isolados</strong></div>
-        <b>→</b>
-        <div><span>Piloto</span><strong>3 lojas com dados integrados</strong></div>
-        <b>→</b>
-        <div><span>Target</span><strong>FreshFlow em toda a rede</strong></div>
-      </div>
-    </section>
+          <div class="two-col">
+            <section class="panel answer-panel">
+              <div class="panel-title"><span>Por que TOGAF?</span><small>método</small></div>
+              <p>Porque o problema não é só tecnológico. O ADM organiza a transformação desde a visão de negócio até dados, aplicações, tecnologia, migração, governança e mudança contínua.</p>
+              <button class="text-link" data-jump="roadmap">ver as fases A a H →</button>
+            </section>
+            <section class="panel answer-panel">
+              <div class="panel-title"><span>Por que ArchiMate?</span><small>linguagem visual</small></div>
+              <p>Porque ele conecta atores, processos, sistemas, dados, infraestrutura e implementação no mesmo modelo. A visualização aqui é gerada a partir do arquivo do Archi.</p>
+              <button class="text-link" data-jump="model">explorar o arquivo →</button>
+            </section>
+          </div>
+        </section>
 
-    <section class="section shell closing">
-      <div class="closing-card">
-        <p class="kicker">Síntese</p>
-        <h2>TOGAF organiza o caminho. ArchiMate mostra as relações. FreshFlow conecta decisão e execução.</h2>
-        <p>Sem tratar a inteligência artificial como uma caixa preta. A proposta é medir, explicar e evoluir a decisão com governança.</p>
+        <section id="screen-problem" class="screen">
+          <div class="answer-head compact"><p class="eyebrow">01 · Problema</p><h2>Excesso e falta podem acontecer ao mesmo tempo.</h2><p class="lead">A arquitetura parte de dois drivers: descarte elevado de perecíveis e ruptura de estoque em produtos frescos. O modelo associa esses problemas à previsão por planilhas e à fragmentação entre PDV, ERP, estoque e promoções.</p></div>
+          <div class="three-col">
+            <article class="panel signal bad"><span>Driver</span><h3>Descarte elevado</h3><p>Produtos perecíveis vencem ou perdem qualidade porque a reposição não acompanha a demanda real.</p></article>
+            <article class="panel signal bad"><span>Driver</span><h3>Ruptura de estoque</h3><p>Itens frescos acabam antes da reposição, gerando indisponibilidade e perda de venda.</p></article>
+            <article class="panel signal neutral"><span>Lacuna</span><h3>Sistemas fragmentados</h3><p>A decisão não fecha o ciclo entre recomendação, ação humana, pedido e resultado observado.</p></article>
+          </div>
+          <section class="panel requirements"><div class="panel-title"><span>Arquitetura desejada</span><small>metas e requisitos do modelo</small></div><div id="problem-requirements" class="tag-grid"></div></section>
+        </section>
+
+        <section id="screen-business" class="screen">
+          <div class="answer-head compact"><p class="eyebrow">02 · Negócio</p><h2>Prever, recomendar, revisar, pedir e medir.</h2><p class="lead">O diferencial frente a um BI é fechar o ciclo operacional. A inteligência artificial apoia, mas a decisão de exceção continua sob responsabilidade humana.</p></div>
+          <section class="panel"><div class="panel-title"><span>Processo alvo</span><small>Fase B</small></div><div id="business-process" class="process-line"></div></section>
+          <div class="two-col"><section class="panel"><div class="panel-title"><span>Papéis</span><small>quem decide</small></div><div id="business-roles" class="list-stack"></div></section><section class="panel human-card"><span>Princípio central</span><h3>IA recomenda.<br>A pessoa responsável decide as exceções.</h3><p>O modelo exige ajuste humano com justificativa e decisão de reposição explicável e auditável.</p></section></div>
+        </section>
+
+        <section id="screen-data" class="screen">
+          <div class="answer-head compact"><p class="eyebrow">03 · Dados e IA</p><h2>Do dado bruto à recomendação explicável.</h2><p class="lead">As fontes entram na plataforma, passam por ingestão, qualidade, catálogo e curadoria, alimentam o motor de previsão e então o motor de reposição produz uma recomendação para o portal.</p></div>
+          <section class="panel"><div class="panel-title"><span>Pipeline FreshFlow</span><small>Fase C</small></div><div id="data-pipeline" class="pipeline"></div></section>
+          <div class="two-col"><section class="panel"><div class="panel-title"><span>Fontes</span><small>entrada</small></div><div id="data-sources" class="chip-list"></div></section><section class="panel"><div class="panel-title"><span>Rastreabilidade</span><small>governança</small></div><div class="audit-list"><span>versão do dado</span><span>versão do modelo</span><span>variáveis usadas</span><span>regra aplicada</span><span>decisão humana</span><span>resultado observado</span></div></section></div>
+        </section>
+
+        <section id="screen-technology" class="screen">
+          <div class="answer-head compact"><p class="eyebrow">04 · Tecnologia</p><h2>Uma arquitetura de referência em AWS.</h2><p class="lead">O modelo conecta o ambiente das lojas à AWS por VPN segura e distribui responsabilidades entre ingestão, armazenamento, preparação, previsão, APIs, banco, identidade e observabilidade.</p></div>
+          <section class="panel tech-map"><div class="panel-title"><span>Stack modelada</span><small>Fase D</small></div><div id="tech-grid" class="tech-grid"></div></section>
+        </section>
+
+        <section id="screen-roadmap" class="screen">
+          <div class="answer-head compact"><p class="eyebrow">05 · Roadmap</p><h2>Definir, migrar, governar e melhorar.</h2><p class="lead">O roadmap conecta as fases A a H do ADM e a transição do baseline atual para um piloto em três lojas e, se validado, para a plataforma em toda a rede.</p></div>
+          <section class="panel"><div class="panel-title"><span>TOGAF ADM</span><small>A → H</small></div><div id="adm-grid" class="adm-grid"></div></section>
+          <section class="panel transition"><div class="state-card"><span>Baseline</span><strong>Planilhas e sistemas isolados</strong></div><b>→</b><div class="state-card"><span>Piloto</span><strong>3 lojas</strong></div><b>→</b><div class="state-card"><span>Target</span><strong>FreshFlow em toda a rede</strong></div></section>
+        </section>
+
+        <section id="screen-model" class="screen model-screen">
+          <div class="answer-head compact"><p class="eyebrow">06 · ArchiMate</p><h2>O arquivo original, navegável.</h2><p class="lead">Escolha uma visão. Os elementos abaixo são lidos diretamente do arquivo <code>Raiz_Viva_TOGAF_ArchiMate.archimate</code>.</p></div>
+          <div class="model-toolbar"><div id="view-tabs" class="view-tabs"></div><div class="model-actions"><input id="model-search" type="search" placeholder="buscar elemento"><button id="fit-view" type="button">ajustar</button><button id="zoom-out" type="button">−</button><button id="zoom-in" type="button">+</button></div></div>
+          <div class="model-layout">
+            <div class="model-canvas-wrap"><div id="model-loading" class="model-loading">lendo arquivo ArchiMate…</div><svg id="architecture-svg" role="img" aria-label="Diagrama ArchiMate"></svg></div>
+            <aside id="detail-panel" class="detail-panel"><span class="detail-label">inspector</span><h3>Selecione um elemento</h3><p>Clique em uma caixa para ver seu tipo e suas relações.</p></aside>
+          </div>
+        </section>
+      </main>
+
+      <aside class="context-panel">
+        <div class="context-head"><span>Contexto do modelo</span><small id="context-count">—</small></div>
+        <section class="context-card"><span>Arquivo fonte</span><strong>Raiz_Viva_TOGAF_ArchiMate.archimate</strong><a href="modelos/Raiz_Viva_TOGAF_ArchiMate.archimate" download>baixar modelo</a></section>
+        <section class="context-card"><span>Modelo</span><strong>Raiz Viva Mercados: Arquitetura TOGAF</strong><p>Motivação, estratégia, negócio, aplicações e dados, tecnologia, implementação e roadmap.</p></section>
+        <section class="context-card warning"><span>Importante</span><p>20% de descarte e 15% de ruptura são metas propostas para o piloto, não resultados comprovados.</p></section>
+        <section class="context-card people"><span>Equipe</span><p>Luana Ramos Rabelo<br>Guilherme Ladeira Correia<br>Lucas Luna Pimentel</p></section>
+      </aside>
+    </div>
+
+    <div id="ask-dock" class="ask-dock">
+      <div class="ask-inner">
+        <input id="ask-input" type="text" placeholder="Pergunte: como funciona o FreshFlow?">
+        <button id="ask-send" type="button">↵</button>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer shell">
-    <p>Luana Ramos Rabelo · Guilherme Ladeira Correia · Lucas Luna Pimentel</p>
-    <p>FIAP · Data Ethics, Governance and Security in the AI Age · 2026</p>
-  </footer>
-
+      <div id="ask-suggestions" class="ask-suggestions">
+        <button data-question="problema">qual é o problema?</button>
+        <button data-question="freshflow">como funciona?</button>
+        <button data-question="togaf">onde entra o TOGAF?</button>
+        <button data-question="archimate">o que o ArchiMate mostra?</button>
+      </div>
+      <div id="ask-answer" class="ask-answer" hidden></div>
+    </div>
+  </div>
   <script src="assets/app.js" defer></script>
 </body>
 </html>
