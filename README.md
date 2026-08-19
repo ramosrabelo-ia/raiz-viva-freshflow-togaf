@@ -1,5 +1,7 @@
 # Raiz Viva FreshFlow
 
+https://ramosrabelo-ia.github.io/raiz-viva-freshflow-togaf/?classId=114ea0a4-c9c4-4a61-9387-7f392ede89ec&assignmentId=a56c9181-76b9-446b-a13c-c7ae653dd327&submissionId=a90a6e4a-4309-507b-501e-6f79d41e91f0
+
 Projeto acadêmico de Arquitetura Empresarial que aplica TOGAF ADM e ArchiMate à operação de perecíveis de uma rede varejista simulada.
 
 ## FreshFlow Computer
